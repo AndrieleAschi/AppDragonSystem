@@ -1,0 +1,10 @@
+<nav *ngIf="loginService.isAuthenticated()" class="navbar">
+    <span class="logo-top mb-0">
+        <a href="/login">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/NXDragonsLogo.png" alt="logo">
+        </a>
+    </span>
+    <div class="form-inline my-2 my-lg-0">
+        <button mat-stroked-button  type="submit" (click)="onLogoff()">Sair</button>
+    </div>
+</nav>

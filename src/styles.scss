@@ -1,0 +1,28 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+@import '~@angular/material/theming';
+@include mat-core();
+$dragons-system-primary: mat-palette($mat-indigo);
+$dragons-system-accent: mat-palette($mat-pink, A200, A100, A400);
+$dragons-system-warn: mat-palette($mat-red);
+$dragons-system-theme: mat-light-theme($dragons-system-primary, $dragons-system-accent, $dragons-system-warn);
+@include angular-material-theme($dragons-system-theme);
+
+
+html, body { 
+    height: 100%;
+}
+body { 
+    margin: 0;
+    font-family: Roboto;
+    background: #f8f9fa;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+    background: black !important;
+}
+.mat-form-field.mat-focused .mat-form-field-label {
+    color: black !important;
+}

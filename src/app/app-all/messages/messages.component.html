@@ -1,0 +1,12 @@
+<div class="container d-flex justify-content-center" *ngIf="messageService.messages.length">
+  <div class="row">
+    <div class="col">
+      <mat-error *ngFor='let message of messageService.messages'> {{message}}</mat-error>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col">
+    <button (click)="messageService.clear()" mat-stroked-button color="warn">Limpar</button>
+      </div>
+  </div>
+</div>
