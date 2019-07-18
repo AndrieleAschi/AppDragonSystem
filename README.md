@@ -16,9 +16,9 @@ Endereço para navegar na aplicação: `http://localhost:4200/`.
 
 ## ---- Frameworks e Libs ----
 
-Framework: Angular 8;
-Pré-processadores: Sass;
-Libs: Material 8, Bootstrap 4, Google Fonts;
+- Framework: Angular 8;
+- Pré-processadores: Sass;
+- Libs: Material 8, Bootstrap 4, Google Fonts;
 
 ## ---- Login e Senha ----
 
