@@ -13,6 +13,8 @@ export class LoginPageComponent implements OnInit {
 
   loginError: boolean;
 
+  hide = true;
+
   username = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
   constructor(

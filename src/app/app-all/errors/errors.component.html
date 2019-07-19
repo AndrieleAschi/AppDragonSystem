@@ -1,0 +1,12 @@
+<div class="container d-flex justify-content-center" *ngIf="errorService.errors.length">
+  <div class="row">
+    <div class="col">
+      <mat-error *ngFor='let error of errorService.errors'> {{error}}</mat-error>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col">
+    <button (click)="errorService.clear()" mat-stroked-button color="warn">Fechar</button>
+      </div>
+  </div>
+</div>

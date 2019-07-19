@@ -11,7 +11,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { LoginService } from './services/login.service';
 import { DragonsComponent } from './dragons/dragons.component';
 import { DetailsComponent } from './details/details.component';
-import { MessagesComponent } from './app-all/messages/messages.component';
+import { ErrorsComponent } from './app-all/errors/errors.component';
 import { AppLogoffComponent } from './app-all/app-logoff/app-logoff.component';
 
 
@@ -22,7 +22,7 @@ import { AppLogoffComponent } from './app-all/app-logoff/app-logoff.component';
     LoginPageComponent,
     DragonsComponent,
     DetailsComponent,
-    MessagesComponent,
+    ErrorsComponent,
     AppLogoffComponent
   ],
   imports: [

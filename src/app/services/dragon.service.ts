@@ -4,7 +4,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Dragon } from '../dragons/dragon';
-import { MessageService } from './message.service';
+import { ErrorService } from './error.service';
 import { Dragons } from 'src/app/dragons/dragons';
 
 
@@ -80,12 +80,12 @@ export class DragonService {
     };
   }
 
-  private log(message: string) {
-    this.messageService.add('Ocorreu um erro! Tente novamente ...');
+  private log(error: string) {
+    this.errorService.add('Ocorreu um erro! Tente novamente ...');
   }
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private errorService: ErrorService
   ) { }
 }

@@ -37,9 +37,9 @@
                 
                 </mat-card-content>
                 <mat-card-actions>
-                <button type="submit" *ngIf="dragon.slug" (click)="saveDragon(name.value, type.value, history.value)" mat-button>Salvar</button>
-                <button type="submit" *ngIf="!dragon.slug" (click)="saveDragon(name.value, type.value, history.value)" mat-button>Registrar</button>
-                <button (click)="goBack()" mat-button>Cancelar</button>
+                   <button type="submit" *ngIf="dragon.slug" (click)="saveDragon(name.value, type.value, history.value)" mat-button>Salvar</button>
+                   <button type="submit" *ngIf="!dragon.slug" (click)="saveDragon(name.value, type.value, history.value)" mat-button>Registrar</button>
+                   <button (click)="goBack()" mat-button>Cancelar</button>
                 </mat-card-actions>
             </mat-card>
 
