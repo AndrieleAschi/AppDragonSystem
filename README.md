@@ -1,6 +1,6 @@
-# ---- Dragons System ----
+## ---- Dragons System ----
 
-App de cadastro de dragões, desenvolvido com a finalidade de teste.
+App de registro de dragões, desenvolvido com a finalidade de testar e provar conhecimento dos tais itens solicitados no desafio.
 
 ## ---- Executar e Navegar ----
 
@@ -13,6 +13,12 @@ Endereço para navegar na aplicação: `http://localhost:4200/`.
 - Cadastrar, editar e excluir dados;
 - Listagem dos dados cadastrados;
 - Logoff do sistema;
+
+## ---- Frameworks e Libs ----
+
+- Framework: Angular 8;
+- Pré-processadores: Sass;
+- Libs: Material 8, Bootstrap 4, Google Fonts;
 
 ## ---- Login e Senha ----
 
