@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Dragon } from '../dragons/dragon';
 import { ErrorService } from './error.service';
 import { Dragons } from 'src/app/dragons/dragons';
+import { environment } from 'src/environments/environment';
 
 
 const httpOptions = {
@@ -17,14 +18,20 @@ const httpOptions = {
 })
 export class DragonService {
 
-  private dragonsApiUrl = 'https://dragons-api.herokuapp.com/api/dragons';
+  private dragonsApiUrl = environment.src;
 
   getDragons(): Observable<Dragons> {
-    return this.http.get<Dragons>(this.dragonsApiUrl + '?page=2&size=200').pipe(
+    return this.http.get<Dragons[]>(this.dragonsApiUrl + '?page=2&size=200').pipe(
       map( result => {
-        const sortedItems = result.items.sort(this.nameCompare);
-        result.items = result.items.sort(this.nameCompare);
-        return result; }),
+        
+          const dragonsArray: Dragon[] = [];
+          
+          result.forEach(element => {
+            dragonsArray.push(element)
+          });
+
+        result.items = dragonsArray.sort(this.nameCompare);
+        return result }),
       catchError(this.handleError('getDragons', new Dragons())),
     );
   }
@@ -32,27 +39,31 @@ export class DragonService {
   getDragon(dragon: Dragon | string): Observable<Dragon> {
     const slug = typeof dragon === 'string' ? dragon : dragon.slug;
     return this.http.get<Dragon>(this.dragonsApiUrl + '/' + slug).pipe(
+      
       catchError(this.handleError('getDragon', new Dragon()))
     );
   }
 
   addDragon (dragon: Dragon): Observable<Dragon> {
     return this.http.post<Dragon>(this.dragonsApiUrl, dragon, httpOptions).pipe(
+    
       catchError(this.handleError<Dragon>('addDragon'))
     );
   }
 
-  deleteDragon (dragon: Dragon | string): Observable<boolean> {
-    const slug = typeof dragon === 'string' ? dragon : dragon.slug;
-    const url = `${this.dragonsApiUrl}/${slug}`;
+  deleteDragon (dragon: Dragon ): Observable<boolean> {
+    
+    const url = `${this.dragonsApiUrl}/${dragon.id}`;
+
 
     return this.http.delete<boolean>(url, httpOptions).pipe(
+      
       catchError(this.handleError<boolean>('deleteDragon'))
     );
   }
 
   updateDragon (dragon: Dragon): Observable<Dragon> {
-    const url = `${this.dragonsApiUrl}/${dragon.slug}`;
+    const url = `${this.dragonsApiUrl}/${dragon.id}`;
 
     return this.http.put<Dragon>(url, dragon, httpOptions).pipe(
       catchError(this.handleError<Dragon>('deleteDragon'))
@@ -81,7 +92,7 @@ export class DragonService {
   }
 
   private log(error: string) {
-    this.errorService.add('Ocorreu um erro! Tente novamente ...');
+    this.errorService.add('Ocorreu um erro! ');
   }
 
   constructor(

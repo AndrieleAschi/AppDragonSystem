@@ -21,8 +21,8 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-form-field.mat-focused .mat-form-field-ripple {
-    background: black !important;
+    background: #000 !important;
 }
 .mat-form-field.mat-focused .mat-form-field-label {
-    color: black !important;
+    color: #000 !important;
 }

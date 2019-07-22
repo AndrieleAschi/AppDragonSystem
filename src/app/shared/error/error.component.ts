@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ErrorService } from '../../services/error.service';
 
 @Component({
-  selector: 'app-errors',
-  templateUrl: './errors.component.html',
-  styleUrls: ['./errors.component.scss']
+  selector: 'app-error',
+  templateUrl: './error.component.html',
+  styleUrls: ['./error.component.scss']
 })
-export class ErrorsComponent implements OnInit {
+export class ErrorComponent implements OnInit {
 
   constructor(public errorService: ErrorService) { }
 

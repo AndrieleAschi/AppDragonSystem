@@ -1,0 +1,16 @@
+.logo-top {
+    img {
+        width: 10%;
+    }
+
+    @media only screen and (max-width:768px) {
+        display: none;
+    }
+}
+
+.mat-stroked-button {
+    color: #ff0000 !important;
+    border-color: #000 !important;
+    border-radius: 10px;
+    box-shadow: none !important;
+}

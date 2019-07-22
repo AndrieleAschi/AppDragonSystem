@@ -5,15 +5,14 @@
         </div>
         <div class="col-md-6" *ngIf="dragon">
             <mat-card class="dragon-card">
-                <mat-card-title *ngIf="!dragon.slug">Adicionar</mat-card-title>
-                <mat-card-title *ngIf="dragon.slug" >Editar</mat-card-title>
+                <mat-card-title > {{dragon.id?"Editar":"Adicionar"}}</mat-card-title>
                 <mat-card-content>
                 <mat-form-field class="full-input">
                     <input matInput placeholder="Nome do Dragão" [formControl]="name" required>
                     <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-input">
-                    <input matInput placeholder="Tipo de Dragão" [formControl]="type">
+                    <input matInput placeholder="Tipo de Dragão" [formControl]="type" required>
                 </mat-form-field>
                 
                 <mat-card-subtitle class="histories"> Descrição: </mat-card-subtitle>
@@ -37,8 +36,8 @@
                 
                 </mat-card-content>
                 <mat-card-actions>
-                   <button type="submit" *ngIf="dragon.slug" (click)="saveDragon(name.value, type.value, history.value)" mat-button>Salvar</button>
-                   <button type="submit" *ngIf="!dragon.slug" (click)="saveDragon(name.value, type.value, history.value)" mat-button>Registrar</button>
+                   <button type="submit" [disabled]="!name.value" (click)="saveDragon(name.value, type.value, history.value, dragon.id)" mat-button>{{dragon.id?"Salvar":"Registrar"}}</button>
+                   
                    <button (click)="goBack()" mat-button>Cancelar</button>
                 </mat-card-actions>
             </mat-card>

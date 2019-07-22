@@ -12,9 +12,6 @@
         <br>
         <mat-form-field class="login-form">
           <input matInput placeholder="Senha" [formControl]="password"  [type]="hide ? 'password' : 'text'" required>
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
         </mat-form-field>
         <br>
         <button mat-raised-button class="btn-form" type="submit" (click)="onLogin(username.value, password.value)">Entrar</button>

@@ -5,16 +5,16 @@
 </div>
 
 <div class="row">
-    <div *ngFor="let dragon of dragons" class="col-3 my-3">
+    <div *ngFor="let dragon of dragons" class="col-12 col-sm-6 col-md-3 my-3">
         <mat-card class="dragon-card">
             <mat-card-header>
                 <mat-card-title> {{dragon.name}} </mat-card-title>
                 <mat-card-subtitle> {{dragon.type}} </mat-card-subtitle>
-                <mat-card-subtitle class="dragon-date-font"> Data de criação: {{ dragon.created_at.toLocaleString() }} </mat-card-subtitle>
+                <mat-card-subtitle class="dragon-date-font"> Data de criação: {{today | date}} </mat-card-subtitle>
             </mat-card-header>
 
             <mat-card-actions>
-                <button mat-button (click)="editDragon(dragon)">EDITAR</button>
+                <button mat-button (click)="editDragon(dragon.id)">EDITAR</button>
                 <button mat-button (click)="deleteDragon(dragon)">DELETAR</button>
             </mat-card-actions>
         </mat-card>

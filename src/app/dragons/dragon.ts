@@ -1,5 +1,5 @@
 export class Dragon {
-    _id: string;
+    id: string;
     name: string;
     created_at: Date;
     type: string;

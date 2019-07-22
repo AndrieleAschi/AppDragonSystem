@@ -3,11 +3,11 @@ import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-logoff',
-  templateUrl: './app-logoff.component.html',
-  styleUrls: ['./app-logoff.component.scss']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
-export class AppLogoffComponent implements OnInit {
+export class AppNavbarComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,

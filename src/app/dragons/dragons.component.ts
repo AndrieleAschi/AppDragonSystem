@@ -13,6 +13,7 @@ export class DragonsComponent implements OnInit {
 
   dragons: Dragon[];
   loadingIndicator: boolean;
+  today: number = Date.now();
 
   getDragons(): void {
     this.loadingIndicator = true;
@@ -30,7 +31,7 @@ export class DragonsComponent implements OnInit {
   }
 
   editDragon(dragon: Dragon): void {
-    this.router.navigate(['dragon/' + dragon.slug]);
+    this.router.navigate(['dragons/' + dragon]);
   }
 
   constructor(

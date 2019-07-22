@@ -18,8 +18,8 @@ export class DetailsComponent implements OnInit {
   @Input() dragon: Dragon;
   loadingIndicator: boolean;
   history = new FormControl('');
-  type = new FormControl('');
-  name = new FormControl('', [Validators.required]);
+  type = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]);
+  name = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]);
   getErrorMessage() {
     return 'Digite um nome válido!';
   }
@@ -30,7 +30,8 @@ export class DetailsComponent implements OnInit {
     private location: Location
   ) { }
 
-  getDragon(): void {
+  getDragon(dragon:Dragon): void {
+
     this.loadingIndicator = true;
     const slug = this.route.snapshot.paramMap.get('id');
     this.dragonService.getDragon(slug).subscribe(dragon => {
@@ -72,9 +73,10 @@ export class DetailsComponent implements OnInit {
     }
   }
 
-  saveDragon(name: string, type: string, history: string): void {
+  saveDragon(name: string, type: string, history: string, dragonId): void {
     this.dragon.name = name;
     this.dragon.type = type;
+    this.dragon.slug = dragonId;
 
     if (!this.dragon.slug) {
       this.dragonService.addDragon(this.dragon)

@@ -5,14 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialComponents} from './material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-all/app-routing/app-routing.module';
+import { AppRoutingModule } from './shared/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { LoginService } from './services/login.service';
 import { DragonsComponent } from './dragons/dragons.component';
 import { DetailsComponent } from './details/details.component';
-import { ErrorsComponent } from './app-all/errors/errors.component';
-import { AppLogoffComponent } from './app-all/app-logoff/app-logoff.component';
+import { ErrorComponent } from './shared/error/error.component';
+import { AppNavbarComponent } from './shared/navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -22,8 +23,8 @@ import { AppLogoffComponent } from './app-all/app-logoff/app-logoff.component';
     LoginPageComponent,
     DragonsComponent,
     DetailsComponent,
-    ErrorsComponent,
-    AppLogoffComponent
+    ErrorComponent,
+    AppNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,8 @@ import { AppLogoffComponent } from './app-all/app-logoff/app-logoff.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialComponents
+    MaterialComponents,
+    CommonModule
   ],
   providers: [
     LoginService
