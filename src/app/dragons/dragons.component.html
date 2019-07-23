@@ -10,7 +10,7 @@
             <mat-card-header>
                 <mat-card-title> {{dragon.name}} </mat-card-title>
                 <mat-card-subtitle> {{dragon.type}} </mat-card-subtitle>
-                <mat-card-subtitle class="dragon-date-font"> Data de criação: {{today | date}} </mat-card-subtitle>
+                <mat-card-subtitle class="dragon-date-font"> Data de criação: {{dragon.createdAt | date}} </mat-card-subtitle>
             </mat-card-header>
 
             <mat-card-actions>

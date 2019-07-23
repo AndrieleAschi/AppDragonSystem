@@ -1,7 +1,7 @@
 export class Dragon {
     id: string;
     name: string;
-    created_at: Date;
+    createdAt: Date;
     type: string;
     slug: string;
     __v: number;

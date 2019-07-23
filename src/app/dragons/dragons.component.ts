@@ -25,7 +25,7 @@ export class DragonsComponent implements OnInit {
       let dragonArray: Dragon[] = response as Dragon[]
       this.dragons = dragonArray; 
       
-      this.dragons.map( i => { i.created_at = new Date(i.created_at);
+      this.dragons.map( i => { i.createdAt = new Date(i.createdAt);
       });
       this.loadingIndicator = false;
     });
