@@ -30,7 +30,7 @@ export class DetailsComponent implements OnInit {
     private location: Location
   ) { }
 
-  getDragon(dragon:Dragon): void {
+  getDragon(): void {
 
     this.loadingIndicator = true;
     const slug = this.route.snapshot.paramMap.get('id');

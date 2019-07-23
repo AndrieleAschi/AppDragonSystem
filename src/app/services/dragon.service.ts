@@ -20,17 +20,18 @@ export class DragonService {
 
   private dragonsApiUrl = environment.src;
 
-  getDragons(): Observable<Dragons> {
-    return this.http.get<Dragons[]>(this.dragonsApiUrl + '?page=2&size=200').pipe(
+  getDragons(): Observable<Dragons>{
+    return this.http.get<Dragon[]>(this.dragonsApiUrl + '?page=2&size=200').pipe(
+      
       map( result => {
         
-          const dragonsArray: Dragon[] = [];
-          
-          result.forEach(element => {
-            dragonsArray.push(element)
-          });
+        const dragonsArray: Dragon[] = [];
+        
+        result.forEach(element => {
+          dragonsArray.push(element)
+        });
 
-        result.items = dragonsArray.sort(this.nameCompare);
+        result = dragonsArray.sort(this.nameCompare);
         return result }),
       catchError(this.handleError('getDragons', new Dragons())),
     );
@@ -60,6 +61,7 @@ export class DragonService {
       
       catchError(this.handleError<boolean>('deleteDragon'))
     );
+    
   }
 
   updateDragon (dragon: Dragon): Observable<Dragon> {
