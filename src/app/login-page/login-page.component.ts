@@ -24,7 +24,6 @@ export class LoginPageComponent implements OnInit {
   ) { }
 
   onLogin(username, password) {
-    console.log(username, password);
     this.loginService.authenticate(username, password)
     .subscribe( success => this.loginError = !success);
     this.router.navigate(['dragons']);
