@@ -50,8 +50,8 @@ export class DetailsComponent implements OnInit {
       const histories: string[] = [];
       this.dragon.histories = histories;
     }
-      this.dragon.histories.push(history);
-      this.history.reset();
+    this.dragon.histories.push(history);
+    this.history.reset();
   }
 
   removeHistory(history: string): void {

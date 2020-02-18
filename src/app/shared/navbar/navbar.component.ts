@@ -13,7 +13,7 @@ export class AppNavbarComponent implements OnInit {
     private loginService: LoginService,
     private router: Router
     ) {}
-  
+
   ngOnInit() {
   }
 
@@ -21,5 +21,4 @@ export class AppNavbarComponent implements OnInit {
     this.loginService.logoff();
     this.router.navigate(['/login']);
   }
-
 }

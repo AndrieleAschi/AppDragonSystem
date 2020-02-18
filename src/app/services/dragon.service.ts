@@ -22,17 +22,18 @@ export class DragonService {
 
   getDragons(): Observable<Dragons>{
     return this.http.get<Dragon[]>(this.dragonsApiUrl + '?page=2&size=200').pipe(
-      
+
       map( result => {
-        
+
         const dragonsArray: Dragon[] = [];
-        
+
         result.forEach(element => {
-          dragonsArray.push(element)
+          dragonsArray.push(element);
         });
 
         result = dragonsArray.sort(this.nameCompare);
-        return result }),
+        return result;
+    }),
       catchError(this.handleError('getDragons', new Dragons())),
     );
   }
@@ -40,31 +41,28 @@ export class DragonService {
   getDragon(dragon: Dragon | string): Observable<Dragon> {
     const slug = typeof dragon === 'string' ? dragon : dragon.slug;
     return this.http.get<Dragon>(this.dragonsApiUrl + '/' + slug).pipe(
-      
+
       catchError(this.handleError('getDragon', new Dragon()))
     );
   }
 
-  addDragon (dragon: Dragon): Observable<Dragon> {
+  addDragon(dragon: Dragon): Observable<Dragon> {
     return this.http.post<Dragon>(this.dragonsApiUrl, dragon, httpOptions).pipe(
-    
       catchError(this.handleError<Dragon>('addDragon'))
     );
   }
 
-  deleteDragon (dragon: Dragon ): Observable<boolean> {
-    
+  deleteDragon(dragon: Dragon ): Observable<boolean> {
+
     const url = `${this.dragonsApiUrl}/${dragon.id}`;
 
 
     return this.http.delete<boolean>(url, httpOptions).pipe(
-      
       catchError(this.handleError<boolean>('deleteDragon'))
     );
-    
   }
 
-  updateDragon (dragon: Dragon): Observable<Dragon> {
+  updateDragon(dragon: Dragon): Observable<Dragon> {
     const url = `${this.dragonsApiUrl}/${dragon.id}`;
 
     return this.http.put<Dragon>(url, dragon, httpOptions).pipe(
@@ -82,10 +80,9 @@ export class DragonService {
     return 0;
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      
-      console.error(error); 
+      console.error(error);
 
       this.log(`${operation} failed: ${error.message}`);
 

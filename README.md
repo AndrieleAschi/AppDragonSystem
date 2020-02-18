@@ -4,9 +4,7 @@ App de registro de dragões, desenvolvido com a finalidade de testar e provar co
 
 ## ---- Executar e Navegar ----
 
-Ao clonar a aplicação, digite `npm install` no terminal de comando. Após o procedimento, instale o Angular Cli com o seguinte comando `npm install -g @angular/cli`, após rode o programa utilizando o comando `ng serve`.
-
-Endereço para navegar na aplicação: `http://localhost:4200/`.
+Ao clonar a aplicação, digite `npm install` no terminal de comando. Após o procedimento, instale o Angular Cli com o seguinte comando `npm install -g @angular/cli`, após rode o programa utilizando o comando `ng serve -o`.
 
 ## ---- Funcionalidades ----
 
@@ -19,7 +17,7 @@ Endereço para navegar na aplicação: `http://localhost:4200/`.
 
 - Framework: Angular 8;
 - Pré-processadores: Sass;
-- Libs: Material 8, Bootstrap 4, Google Fonts;
+- Libs: Material 8, Bootstrap 4, Font Awesome;
 
 ## ---- Login e Senha ----
 

@@ -23,28 +23,28 @@ export class DragonsComponent implements OnInit {
     this.dragonService.getDragons().subscribe(response => {
 
       let dragonArray: Dragon[] = response as Dragon[]
-      this.dragons = dragonArray; 
-      
+      this.dragons = dragonArray;
+
       this.dragons.map( i => { i.createdAt = new Date(i.createdAt);
       });
       this.loadingIndicator = false;
     });
   }
-  
+
   deleteDragon(dragon: Dragon): void {
     this.dragonService.deleteDragon(dragon).subscribe();
     this.dragons = this.dragons.filter(d => d !== dragon);
   }
-  
+
   editDragon(dragon: Dragon): void {
     this.router.navigate(['dragons/' + dragon]);
   }
-  
+
   constructor(
     private dragonService: DragonService,
     private router: Router,
     ) { }
-    
+
   ngOnInit() {
     this.getDragons();
     this.dragons$ = this.dragonService.getDragons();
