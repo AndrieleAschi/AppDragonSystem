@@ -8,6 +8,10 @@ const AUTH_TOKEN = 'authenticated';
 })
 export class LoginService {
 
+  constructor() {
+    this.authToken = 'validToken';
+  }
+
   authToken: string;
 
   authenticate(username: string, password: string): Observable<boolean> {
@@ -28,7 +32,4 @@ export class LoginService {
     return AUTH_TOKEN === token;
   }
 
-  constructor() {
-    this.authToken = 'validToken';
-  }
 }

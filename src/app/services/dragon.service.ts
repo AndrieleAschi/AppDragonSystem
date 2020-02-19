@@ -3,9 +3,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Dragon } from '../dragons/dragon';
+import { Dragon } from '../model/dragon';
 import { ErrorService } from './error.service';
-import { Dragons } from 'src/app/dragons/dragons';
+import { Dragons } from 'src/app/model/dragons';
 import { environment } from 'src/environments/environment';
 
 
@@ -19,6 +19,11 @@ const httpOptions = {
 export class DragonService {
 
   private dragonsApiUrl = environment.src;
+
+  constructor(
+    private http: HttpClient,
+    private errorService: ErrorService
+  ) { }
 
   getDragons(): Observable<Dragons>{
     return this.http.get<Dragon[]>(this.dragonsApiUrl + '?page=2&size=200').pipe(
@@ -94,8 +99,4 @@ export class DragonService {
     this.errorService.add('Ocorreu um erro! ');
   }
 
-  constructor(
-    private http: HttpClient,
-    private errorService: ErrorService
-  ) { }
 }

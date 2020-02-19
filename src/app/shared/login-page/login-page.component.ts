@@ -23,6 +23,13 @@ export class LoginPageComponent implements OnInit {
     private loginService: LoginService,
   ) { }
 
+  ngOnInit() {
+    this.loginError = false;
+    if (this.loginService.isAuthenticated()) {
+      this.router.navigate(['dragons']);
+    }
+  }
+
   onLogin(username, password) {
     this.loginService.authenticate(username, password)
     .subscribe( success => this.loginError = !success);
@@ -34,11 +41,5 @@ export class LoginPageComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-  ngOnInit() {
-    this.loginError = false;
-    if (this.loginService.isAuthenticated()) {
-      this.router.navigate(['dragons']);
-    }
-  }
 
 }

@@ -5,9 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialComponents} from '../assets/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './shared/app-routing/app-routing.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+import { LoginPageComponent } from './shared/login-page/login-page.component';
 import { LoginService } from './services/login.service';
 import { DragonsComponent } from './dragons/dragons.component';
 import { DetailsComponent } from './details/details.component';

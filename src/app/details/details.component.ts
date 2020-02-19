@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Dragon } from '../dragons/dragon';
+import { Dragon } from '../model/dragon';
 import { DragonService } from '../services/dragon.service';
 
 const NEW_DRAGON_ROUTE = 'dragons/new';
@@ -20,9 +20,6 @@ export class DetailsComponent implements OnInit {
   history = new FormControl('');
   type = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]);
   name = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]);
-  getErrorMessage() {
-    return 'Digite um nome válido!';
-  }
 
   constructor(
     private route: ActivatedRoute,
@@ -30,8 +27,19 @@ export class DetailsComponent implements OnInit {
     private location: Location
   ) { }
 
-  getDragon(): void {
+  ngOnInit() {
+    if (this.route.routeConfig.path !== NEW_DRAGON_ROUTE) {
+      this.getDragon();
+    } else {
+      this.dragon = new Dragon();
+    }
+  }
 
+  getErrorMessage() {
+    return 'Digite um nome válido!';
+  }
+
+  getDragon(): void {
     this.loadingIndicator = true;
     const slug = this.route.snapshot.paramMap.get('id');
     this.dragonService.getDragon(slug).subscribe(dragon => {
@@ -65,13 +73,6 @@ export class DetailsComponent implements OnInit {
     this.location.back();
   }
 
-  ngOnInit() {
-    if (this.route.routeConfig.path !== NEW_DRAGON_ROUTE) {
-      this.getDragon();
-    } else {
-      this.dragon = new Dragon();
-    }
-  }
 
   saveDragon(name: string, type: string, history: string, dragonId): void {
     this.dragon.name = name;

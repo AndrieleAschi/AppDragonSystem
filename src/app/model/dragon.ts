@@ -4,7 +4,6 @@ export class Dragon {
     createdAt: Date;
     type: string;
     slug: string;
-    // tslint:disable-next-line:variable-name
     __v: number;
     histories: string[];
 }

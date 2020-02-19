@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Dragon } from './dragon';
+import { Dragon } from '../model/dragon';
 import { DragonService } from '../services/dragon.service';
 import { Observable } from 'rxjs';
-import { Dragons } from './dragons';
+import { Dragons } from '../model/dragons';
 
 @Component({
   selector: 'app-dragons',
@@ -17,6 +17,16 @@ export class DragonsComponent implements OnInit {
   dragons$:Observable<Dragons>;
   loadingIndicator: boolean;
   today: number = Date.now();
+
+  constructor(
+    private dragonService: DragonService,
+    private router: Router,
+    ) { }
+
+  ngOnInit() {
+    this.getDragons();
+    this.dragons$ = this.dragonService.getDragons();
+  }
 
   getDragons(): void {
     this.loadingIndicator = true;
@@ -39,15 +49,4 @@ export class DragonsComponent implements OnInit {
   editDragon(dragon: Dragon): void {
     this.router.navigate(['dragons/' + dragon]);
   }
-
-  constructor(
-    private dragonService: DragonService,
-    private router: Router,
-    ) { }
-
-  ngOnInit() {
-    this.getDragons();
-    this.dragons$ = this.dragonService.getDragons();
-  }
-
 }

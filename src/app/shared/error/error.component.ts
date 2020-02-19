@@ -9,7 +9,9 @@ import { ErrorService } from '../../services/error.service';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor(public errorService: ErrorService) { }
+  constructor(
+    public errorService: ErrorService
+  ) { }
 
   ngOnInit() {
   }
